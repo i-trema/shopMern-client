@@ -1,10 +1,13 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Connexion = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { token, setToken } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -17,11 +20,16 @@ const Connexion = () => {
     };
     axios
       .post("http://localhost:5000/user/login", user)
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
-        console.log(res.statusText);
-        // navigate("/connexion");
+      .then((resultat) => {
+        // sauvgarder le token dans le Local Storage
+        // sauvegarder le token dans le contexte de l'appli
+        // rediriger vers l'accueil
+
+        localStorage.setItem("token", resultat.data);
+        setToken(resultat.data);
+        // console.log(token);
+
+        navigate("/");
       })
       .catch((err) => console.log(err));
   };
