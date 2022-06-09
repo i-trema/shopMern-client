@@ -28,7 +28,7 @@ export default function NavBar() {
         <Link to="/inscription">Inscription</Link>
       </li>
       <li hidden={!token}>
-        <Link to="/annonces">Annonces</Link>
+        <Link to="/annonce">Annonce</Link>
       </li>
       <li hidden={!token}>
         <Link to="/" onClick={logout}>
@@ -36,6 +36,7 @@ export default function NavBar() {
         </Link>
       </li>
     </nav>
+    ////// 2eme version :
     //   <nav>
     //   <h1>
     //     <Link to="/"> Accueil </Link>
@@ -43,7 +44,7 @@ export default function NavBar() {
     //   {token ? (
     //     <>
     //       <Link to="/annonce"> Annonce </Link>
-    //       <Link to="/"> Logout </Link>
+    //       <Link to="/" onClick={logout}> Logout </Link>
     //     </>
     //   ) : (
     //     <>

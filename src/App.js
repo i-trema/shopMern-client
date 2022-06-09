@@ -5,6 +5,7 @@ import Inscription from "./pages/inscription/Inscription";
 import Accueil from "./pages/accueil/Accueil";
 import { useState } from "react";
 import { AuthContext } from "./contexts/AuthContext";
+import Annonce from "./pages/annonce/Annonce";
 
 function App() {
   const initToken = localStorage.getItem("token")
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Accueil />} />
           <Route path="connexion" element={<Connexion />} />
           <Route path="inscription" element={<Inscription />} />
+          <Route path="annonce" element={<Annonce />} />
         </Routes>
       </AuthContext.Provider>
     </BrowserRouter>
