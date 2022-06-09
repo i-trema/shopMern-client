@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
-    <div>
+    <nav>
       <li>
         <Link to="/">Accueil</Link>
       </li>
@@ -13,6 +13,6 @@ export default function NavBar() {
       <li>
         <Link to="/inscription">Inscription</Link>
       </li>
-    </div>
+    </nav>
   );
 }
