@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Inscription = () => {
   //// on peut aussi mettre tous les inputs dans la même variable
@@ -13,8 +15,20 @@ const Inscription = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(fullname, email, password);
+    const user = {
+      fullname,
+      email,
+      password,
+    };
+    axios
+      .post("http://localhost:5000/user/register", user)
+      .then(() => navigate("/connexion"))
+      .catch((err) => console.log(err));
   };
 
   return (
