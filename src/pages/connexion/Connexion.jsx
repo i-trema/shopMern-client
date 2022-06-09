@@ -19,7 +19,7 @@ const Connexion = () => {
       password,
     };
     axios
-      .post("http://localhost:5000/user/login", user)
+      .post("/user/login", user)
       .then((resultat) => {
         // sauvegarder le token dans le Local Storage
         // sauvegarder le token dans le contexte de l'appli

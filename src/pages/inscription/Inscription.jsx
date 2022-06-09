@@ -26,7 +26,7 @@ const Inscription = () => {
       password,
     };
     axios
-      .post("http://localhost:5000/user/register", user)
+      .post("/user/register", user)
       .then(() => navigate("/connexion"))
       .catch((err) => console.log(err));
   };
