@@ -21,14 +21,12 @@ const Connexion = () => {
     axios
       .post("http://localhost:5000/user/login", user)
       .then((resultat) => {
-        // sauvgarder le token dans le Local Storage
+        // sauvegarder le token dans le Local Storage
         // sauvegarder le token dans le contexte de l'appli
         // rediriger vers l'accueil
 
         localStorage.setItem("token", resultat.data);
         setToken(resultat.data);
-        // console.log(token);
-
         navigate("/");
       })
       .catch((err) => console.log(err));

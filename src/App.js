@@ -7,7 +7,11 @@ import { useState } from "react";
 import { AuthContext } from "./contexts/AuthContext";
 
 function App() {
-  const [token, setToken] = useState("");
+  const initToken = localStorage.getItem("token")
+    ? localStorage.getItem("token")
+    : "";
+
+  const [token, setToken] = useState(initToken);
 
   return (
     <BrowserRouter>
