@@ -26,6 +26,8 @@ export default function Annonce() {
         setPhoto={setPhoto}
         qteDispo={qteDispo}
         setQteDispo={setQteDispo}
+        id={id}
+        setId={setId}
       />
       <ListAnnonce
         annonces={annonces}
