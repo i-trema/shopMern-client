@@ -2,14 +2,20 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 
-export default function FormAnnonce() {
-  const [id, setId] = useState("");
-  const [nom, setNom] = useState("");
-  const [prix, setPrix] = useState("");
-  const [description, setDescription] = useState("");
-  const [photo, setPhoto] = useState("");
-  const [qteDispo, setQteDispo] = useState("1");
-
+export default function FormAnnonce({
+  annonces,
+  setAnnonces,
+  nom,
+  setNom,
+  prix,
+  setPrix,
+  description,
+  setDescription,
+  photo,
+  setPhoto,
+  qteDispo,
+  setQteDispo,
+}) {
   const { token } = useContext(AuthContext);
 
   const createAnnonce = (e) => {
@@ -22,7 +28,16 @@ export default function FormAnnonce() {
     };
     axios
       .post("/annonce", annonce, config)
-      .then((res) => console.log(res))
+      .then((res) => {
+        // ajouter le res.data a notre liste d'affichage.
+        // on crée une liste avec le res.data et le reste des annonces :
+        setAnnonces([res.data, ...annonces]);
+        setNom("");
+        setPrix("");
+        setDescription("");
+        setPhoto("");
+        setQteDispo("");
+      })
       .catch((err) => console.log(err));
   };
 
